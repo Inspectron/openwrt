@@ -37,7 +37,7 @@ define Build/InstallDev
 
 	#Install wireless config
 	$(INSTALL_DIR) $(1)/etc/config
-	$(CP) $(PKG_BUILD_DIR)/snapon_wireless_config $(1)/etc/config/wireless
+	#$(CP) $(PKG_BUILD_DIR)/snapon_wireless_config $(1)/etc/config/wireless
 endef
 
 define Package/inspscript/install
@@ -47,7 +47,7 @@ define Package/inspscript/install
 
 	#Install wireless config
 	$(INSTALL_DIR) $(1)/etc/config
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/snapon_wireless_config $(1)/etc/config/wireless
+	#$(INSTALL_BIN) $(PKG_BUILD_DIR)/snapon_wireless_config $(1)/etc/config/wireless
 endef
 
 $(eval $(call BuildPackage,inspscript))
