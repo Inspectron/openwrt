@@ -9,7 +9,7 @@ PKG_PRO_FILE:=wifiHandleController.pro
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:= git@github.com:Inspectron/wifiHandleController.git
-PKG_SOURCE_VERSION:=1dcdee8bb5e92fb3dd178863db3053a73789b2dc
+PKG_SOURCE_VERSION:=b224c01053eccab4c04b22cd5f8f8a2c90288177
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -36,12 +36,14 @@ endef
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/root
-	$(CP) $(PKG_BUILD_DIR)/wifiHandleController $(1)/root
+	#$(CP) $(PKG_BUILD_DIR)/wifiHandleController $(1)/root
+	$(CP) ~/wifiHandleController/build-wifiHandleController-Qt_vocore-Release/wifiHandleController $(1)/root
 endef
 
 define Package/wifiHandleController/install
 	$(INSTALL_DIR) $(1)/root
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/wifiHandleController $(1)/root
+	#$(INSTALL_BIN) $(PKG_BUILD_DIR)/wifiHandleController $(1)/root
+	$(CP) ~/wifiHandleController/build-wifiHandleController-Qt_vocore-Release/wifiHandleController $(1)/root
 endef
 
 $(eval $(call BuildPackage,wifiHandleController))
