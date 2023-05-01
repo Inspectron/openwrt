@@ -8,7 +8,7 @@ PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:= git@github.com:Inspectron/inspscript.git
-PKG_SOURCE_VERSION:=9c319b272dab6dbdcb2d50ad348a2ad4cb251893
+PKG_SOURCE_VERSION:=1fc2eb96e003c8e654c43c7f1f6ffc12e1354de2
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -39,8 +39,7 @@ define Build/InstallDev
 	$(CP) $(PKG_BUILD_DIR)/snapon_wireless_config $(1)/etc/config/wireless
 
 	# Install boot check
-	$(CP) $(PKG_BUILD_DIR)/99_create_bootok.sh $(1)/etc/init.d
-	$(CP) $(PKG_BUILD_DIR)/bootok $(1)/etc
+	$(CP) $(PKG_BUILD_DIR)/99_remove_boot_flag.sh $(1)/etc/init.d
 endef
 
 define Package/inspscript/install
@@ -53,8 +52,7 @@ define Package/inspscript/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/snapon_wireless_config $(1)/etc/config/wireless
 
 	# Install boot check
-	$(CP) $(PKG_BUILD_DIR)/99_create_bootok.sh $(1)/etc/init.d
-	$(CP) $(PKG_BUILD_DIR)/bootok $(1)/etc
+	$(CP) $(PKG_BUILD_DIR)/99_remove_boot_flag.sh $(1)/etc/init.d
 endef
 
 $(eval $(call BuildPackage,inspscript))
