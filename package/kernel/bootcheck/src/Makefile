@@ -1,0 +1,2 @@
+obj-m += bootcheck.o
+
