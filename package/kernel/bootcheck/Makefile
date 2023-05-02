@@ -17,7 +17,7 @@ define KernelPackage/bootcheck
   SUBMENU:=Other modules
   TITLE:=Device reset after unsuccessful boot kernel module
   FILES:=$(PKG_BUILD_DIR)/bootcheck.ko
-  AUTOLOAD:=$(call AutoLoad,10,bootcheck,1)
+  AUTOLOAD:=$(call AutoLoad,90,bootcheck,1)
   DEPENDS:=+libstdcpp
   KCONFIG:=
 endef
