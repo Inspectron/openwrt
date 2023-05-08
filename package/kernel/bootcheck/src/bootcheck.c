@@ -22,23 +22,23 @@ static int __init bootcheck_init(void)
     struct file *f1, *f2;
     int ret = 0;
 
-    sprintf(message, "=== Checking previous boot ... ===\n");
+    sprintf(message, "=== bootcheck: module init  ===\n");
     printk(KERN_INFO "%s", message);
+    ret = call_usermodehelper(cmdline2[0], cmdline2, NULL, UMH_WAIT_EXEC);
+    printk(KERN_INFO "=== bootcheck: module loaded ===\n");
+    return 0;
 
     //msleep(5000);
 
-    f1 = filp_open(file1path, O_RDONLY, 0);
-    printk(KERN_INFO "=== /etc/boot_was_not_ok open(): %ld ===\n", PTR_ERR(f1));
+    //f1 = filp_open(file1path, O_RDONLY, 0);
+    //printk(KERN_INFO "=== /etc/boot_was_not_ok open(): %ld ===\n", PTR_ERR(f1));
 
-    f2 = filp_open(file2path, O_RDONLY, 0);
-    printk(KERN_INFO "=== /etc/reset_performed open(): %ld ===\n", PTR_ERR(f2));
+    //f2 = filp_open(file2path, O_RDONLY, 0);
+    //printk(KERN_INFO "=== /etc/reset_performed open(): %ld ===\n", PTR_ERR(f2));
 
     // if (!IS_ERR(f1))
     if (PTR_ERR(f1) != -2)
     {
-        //f2 = filp_open(file2path, O_RDONLY, 0);
-        //printk(KERN_INFO "=== /etc/reset_performed open(): %ld ===\n", PTR_ERR(f2));
-
         //if (IS_ERR(f2))
         if (PTR_ERR(f2) == -2)
         {
