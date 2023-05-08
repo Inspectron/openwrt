@@ -36,14 +36,12 @@ endef
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/root
-	#$(CP) $(PKG_BUILD_DIR)/wifiHandleController $(1)/root
-	$(CP) ~/wifiHandleController/build-wifiHandleController-Qt_vocore-Release/wifiHandleController $(1)/root
+	$(CP) $(PKG_BUILD_DIR)/wifiHandleController $(1)/root
 endef
 
 define Package/wifiHandleController/install
 	$(INSTALL_DIR) $(1)/root
-	#$(INSTALL_BIN) $(PKG_BUILD_DIR)/wifiHandleController $(1)/root
-	$(CP) ~/wifiHandleController/build-wifiHandleController-Qt_vocore-Release/wifiHandleController $(1)/root
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/wifiHandleController $(1)/root
 endef
 
 $(eval $(call BuildPackage,wifiHandleController))
