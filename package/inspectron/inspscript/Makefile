@@ -37,9 +37,6 @@ define Build/InstallDev
 	# Install wireless config
 	$(INSTALL_DIR) $(1)/etc/config
 	$(CP) $(PKG_BUILD_DIR)/snapon_wireless_config $(1)/etc/config/wireless
-
-	# Install boot check
-	$(CP) $(PKG_BUILD_DIR)/99_remove_boot_flag.sh $(1)/etc/init.d
 endef
 
 define Package/inspscript/install
@@ -50,9 +47,6 @@ define Package/inspscript/install
 	# Install wireless config
 	$(INSTALL_DIR) $(1)/etc/config
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/snapon_wireless_config $(1)/etc/config/wireless
-
-	# Install boot check
-	$(CP) $(PKG_BUILD_DIR)/99_remove_boot_flag.sh $(1)/etc/init.d
 endef
 
 $(eval $(call BuildPackage,inspscript))
