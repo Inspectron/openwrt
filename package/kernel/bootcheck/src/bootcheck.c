@@ -1,11 +1,4 @@
-//#include <linux/fs.h>
-//#include <linux/init.h>
-//#include <linux/uaccess.h>
-//#include <linux/reboot.h>
-//#include <linux/syscalls.h>
 #include <linux/module.h>
-//#include <linux/sysrq.h>
-//#include <linux/delay.h>
 
 static char *cmdline[] = { "/sbin/jffs2reset", NULL };
 
