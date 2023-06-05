@@ -8,7 +8,7 @@ PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:= git@github.com:Inspectron/inspscript.git
-PKG_SOURCE_VERSION:=d4031321fbc1411d75f7e1679e9107edfc2897ed
+PKG_SOURCE_VERSION:=a1eee9a6a91768a82971a0acf07ff540f6e54671
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -41,6 +41,10 @@ define Build/InstallDev
 	# Install uboot env config
 	$(INSTALL_DIR) $(1)/etc/config
         $(CP) $(PKG_BUILD_DIR)/fw_env.config $(1)/etc/fw_env.config
+
+	# Install script to kill HDLE application and toggles GPIO pin to shutdown the device
+	$(INSTALL_DIR) $(1)/root
+	$(CP) $(PKG_BUILD_DIR)/kill_appln_toggle_gpio.sh $(1)/root
 endef
 
 define Package/inspscript/install
@@ -55,6 +59,10 @@ define Package/inspscript/install
         # Install uboot env config
         $(INSTALL_DIR) $(1)/etc/config
         $(INSTALL_BIN) $(PKG_BUILD_DIR)/fw_env.config $(1)/etc/fw_env.config
+
+	# Install script to kill HDLE application and toggles GPIO pin to shutdown the device
+	$(INSTALL_DIR) $(1)/root
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/kill_appln_toggle_gpio.sh $(1)/root
 endef
 
 $(eval $(call BuildPackage,inspscript))
