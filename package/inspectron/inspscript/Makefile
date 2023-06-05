@@ -8,7 +8,7 @@ PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:= git@github.com:Inspectron/inspscript.git
-PKG_SOURCE_VERSION:=4a1ae01b5f6d5a2145742d5ef477018183765612
+PKG_SOURCE_VERSION:=d4031321fbc1411d75f7e1679e9107edfc2897ed
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -37,6 +37,10 @@ define Build/InstallDev
 	# Install wireless config
 	$(INSTALL_DIR) $(1)/etc/config
 	$(CP) $(PKG_BUILD_DIR)/snapon_wireless_config $(1)/etc/config/wireless
+
+	# Install uboot env config
+	$(INSTALL_DIR) $(1)/etc/config
+        $(CP) $(PKG_BUILD_DIR)/fw_env.config $(1)/etc/fw_env.config
 endef
 
 define Package/inspscript/install
@@ -47,6 +51,10 @@ define Package/inspscript/install
 	# Install wireless config
 	$(INSTALL_DIR) $(1)/etc/config
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/snapon_wireless_config $(1)/etc/config/wireless
+
+        # Install uboot env config
+        $(INSTALL_DIR) $(1)/etc/config
+        $(INSTALL_BIN) $(PKG_BUILD_DIR)/fw_env.config $(1)/etc/fw_env.config
 endef
 
 $(eval $(call BuildPackage,inspscript))
