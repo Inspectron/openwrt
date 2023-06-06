@@ -56,9 +56,9 @@ define Package/inspscript/install
 	$(INSTALL_DIR) $(1)/etc/config
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/snapon_wireless_config $(1)/etc/config/wireless
 
-        # Install uboot env config
-        $(INSTALL_DIR) $(1)/etc/config
-        $(INSTALL_BIN) $(PKG_BUILD_DIR)/fw_env.config $(1)/etc/fw_env.config
+	# Install uboot env config
+	$(INSTALL_DIR) $(1)/etc/config
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/fw_env.config $(1)/etc/fw_env.config
 
 	# Install script to kill HDLE application and toggles GPIO pin to shutdown the device
 	$(INSTALL_DIR) $(1)/root
