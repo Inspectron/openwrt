@@ -5083,7 +5083,7 @@ CONFIG_PACKAGE_libwebsockets-openssl=y
 # CONFIG_PACKAGE_libxerces-c-samples is not set
 CONFIG_PACKAGE_libxml2=y
 # CONFIG_PACKAGE_libxslt is not set
-# CONFIG_PACKAGE_libyaml-cpp is not set
+CONFIG_PACKAGE_libyaml-cpp=y
 # CONFIG_PACKAGE_libyang is not set
 # CONFIG_PACKAGE_libyarpl is not set
 # CONFIG_PACKAGE_libyubikey is not set
