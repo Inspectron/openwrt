@@ -22,10 +22,6 @@
 	status = "okay";
 };
 
-&ethernet {
-	mtd-mac-address = <&factory 0x28>;
-};
-
 &esw {
 	mediatek,portmap = <0x7>;
 	mediatek,portdisable = <0x3a>;
