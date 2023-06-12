@@ -1,4 +1,4 @@
-#include "mt7628an.dtsi"
+#include "mt7628an_mod.dtsi"
 
 / {
 	compatible = "vocore,vocore2", "mediatek,mt7628an-soc";
@@ -20,10 +20,6 @@
 
 &wmac {
 	status = "okay";
-};
-
-&ethernet {
-	mtd-mac-address = <&factory 0x28>;
 };
 
 &esw {
