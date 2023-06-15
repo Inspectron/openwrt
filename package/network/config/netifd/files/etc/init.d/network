@@ -5,8 +5,37 @@ STOP=90
 
 USE_PROCD=1
 
+populate_wireless()
+{
+	SSID=$(fw_printenv SSID | sed 's/SSID=//')
+	MACADDR=$(hexdump -C /dev/mtd2 | head -1 | awk '{print toupper(":"substr($10,1,2)":"substr($11,1,2))}')
+	SSID="$SSID$MACADDR"
+	echo '*** Setting SSID: $SSID' > /dev/kmsg
+	cat <<EOF > /etc/config/wireless
+	config wifi-device 'radio0'
+		option type 'mac80211'
+		option channel 'auto'
+		option hwmode '11g'
+		option path 'platform/10300000.wmac'
+		option htmode 'HT20'
+
+	option disabled '0'
+		config wifi-iface 'handle_hotspot'
+		option device 'radio0'
+		option network 'lan'
+		option mode 'ap'
+		option ssid '$SSID'
+		option key 'Inspectron'
+		option encryption 'psk2'
+		option disabled '0'
+		option disassoc_low_ack '0'
+	EOF
+}
+
 init_switch() {
 	setup_switch() { return 0; }
+
+	populate_wireless
 
 	include /lib/network
 	setup_switch
