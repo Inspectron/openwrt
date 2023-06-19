@@ -8,7 +8,7 @@ PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:= git@github.com:Inspectron/inspscript.git
-PKG_SOURCE_VERSION:=24e5982303b01617c0cf2741d5b2fd513fa25f0f
+PKG_SOURCE_VERSION:=a78ca358bd3b171ae4aee3f551195946a6066aab
 
 include $(INCLUDE_DIR)/package.mk
 
