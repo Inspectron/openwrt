@@ -45,6 +45,10 @@ define Build/InstallDev
 	# Install script to kill HDLE application and toggles GPIO pin to shutdown the device
 	$(INSTALL_DIR) $(1)/root
 	$(CP) $(PKG_BUILD_DIR)/kill_appln_toggle_gpio.sh $(1)/root
+
+	# Install script to enable yellow power led
+	$(INSTALL_DIR) $(1)/root
+	$(CP) $(PKG_BUILD_DIR)/set_power_led_yellow.sh $(1)/root
 endef
 
 define Package/inspscript/install
@@ -63,6 +67,10 @@ define Package/inspscript/install
 	# Install script to kill HDLE application and toggles GPIO pin to shutdown the device
 	$(INSTALL_DIR) $(1)/root
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/kill_appln_toggle_gpio.sh $(1)/root
+
+	# Install script to enable yellow power led
+	$(INSTALL_DIR) $(1)/root
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/set_power_led_yellow.sh $(1)/root
 endef
 
 $(eval $(call BuildPackage,inspscript))
