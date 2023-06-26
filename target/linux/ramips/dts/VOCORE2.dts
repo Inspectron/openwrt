@@ -31,7 +31,7 @@
 	m25p80@0 {
 		compatible = "jedec,spi-nor";
 		reg = <0>;
-		spi-max-frequency = <10000000>;
+		spi-max-frequency = <100000000>;
 
 		partitions {
 			compatible = "fixed-partitions";
@@ -63,11 +63,6 @@
 			};
 		};
 	};
-};
-
-&sdhci {
-       status = "okay";
-       mediatek,cd-poll;
 };
 
 &i2c {

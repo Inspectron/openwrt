@@ -27,14 +27,6 @@
 	mediatek,portdisable = <0x3a>;
 };
 
-&i2s {
-	status = "okay";
-};
-
-&gdma {
-	status = "okay";
-};
-
 &pwm {
 	status = "okay";
 };
