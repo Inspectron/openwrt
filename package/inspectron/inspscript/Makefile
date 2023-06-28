@@ -49,6 +49,10 @@ define Build/InstallDev
 	# Install script to enable yellow power led
 	$(INSTALL_DIR) $(1)/root
 	$(CP) $(PKG_BUILD_DIR)/set_power_led_yellow.sh $(1)/root
+
+	# Install new mosquitto config
+	$(INSTALL_DIR) $(1)/etc/mosquitto
+	$(CP) $(PKG_BUILD_DIR)/handle_mosquitto.conf $(1)/etc/mosquitto/mosquitto.conf
 endef
 
 define Package/inspscript/install
@@ -71,6 +75,10 @@ define Package/inspscript/install
 	# Install script to enable yellow power led
 	$(INSTALL_DIR) $(1)/root
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/set_power_led_yellow.sh $(1)/root
+
+	# Install new mosquitto config
+	$(INSTALL_DIR) $(1)/etc/mosquitto
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/handle_mosquitto.conf $(1)/etc/mosquitto/mosquitto.conf
 endef
 
 $(eval $(call BuildPackage,inspscript))
