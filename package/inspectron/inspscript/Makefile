@@ -53,6 +53,9 @@ define Build/InstallDev
 	# Install new mosquitto config
 	$(INSTALL_DIR) $(1)/etc/mosquitto
 	$(CP) $(PKG_BUILD_DIR)/handle_mosquitto.conf $(1)/etc/mosquitto/mosquitto.conf
+
+	# Update mosquitto init.d config
+	$(CP) $(PKG_BUILD_DIR)/mosquitto $(TOPDIR)/feeds/packages/net/mosquitto/files/etc/init.d/mosquitto
 endef
 
 define Package/inspscript/install
