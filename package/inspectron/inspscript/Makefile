@@ -54,8 +54,9 @@ define Build/InstallDev
 	$(INSTALL_DIR) $(1)/etc/mosquitto
 	$(CP) $(PKG_BUILD_DIR)/handle_mosquitto.conf $(1)/etc/mosquitto/mosquitto.conf
 
-	# Update mosquitto init.d config
-	$(CP) $(PKG_BUILD_DIR)/mosquitto $(TOPDIR)/feeds/packages/net/mosquitto/files/etc/init.d/mosquitto
+	# Install updated mosquitto init.d script with high start priority
+	$(INSTALL_DIR) $(1)/etc/init.d
+	$(CP) $(PKG_BUILD_DIR)/mosquitto $(1)/etc/init.d
 endef
 
 define Package/inspscript/install
@@ -82,6 +83,10 @@ define Package/inspscript/install
 	# Install new mosquitto config
 	$(INSTALL_DIR) $(1)/etc/mosquitto
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/handle_mosquitto.conf $(1)/etc/mosquitto/mosquitto.conf
+
+	# Install updated mosquitto init.d script with high start priority
+	$(INSTALL_DIR) $(1)/etc/init.d
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/mosquitto $(1)/etc/init.d
 endef
 
 $(eval $(call BuildPackage,inspscript))
