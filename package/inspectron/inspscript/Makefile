@@ -17,6 +17,7 @@ define Package/inspscript
 	SECTION:=inspectron
 	CATEGORY:=inspectron
 	TITLE:=inspscript
+        DEPENDS:= +mosquitto-nossl
 endef
 
 # Package description; a more verbose description on what our package does
