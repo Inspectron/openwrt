@@ -89,3 +89,8 @@
 	label = "INSP_GPIO3";
 	status = "disabled";
 };
+
+&uart2 {
+	label = "INSP_GPIO20";
+	status = "disabled";
+};
