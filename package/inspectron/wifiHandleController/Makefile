@@ -9,7 +9,7 @@ PKG_PRO_FILE:=wifiHandleController.pro
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:= git@github.com:Inspectron/wifiHandleController.git
-PKG_SOURCE_VERSION:=b3a49cbab830bec4dcf6a279962f3182f9359715
+PKG_SOURCE_VERSION:=2159e1a3b29aed58ad47c87ae04c48f9da2734f5
 
 include $(INCLUDE_DIR)/package.mk
 
